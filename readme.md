@@ -1,4 +1,4 @@
-## Nama : Muhammad Abduh  
-## NIM : 2100016008  
+## Nama : Ferdiansyah Eka Putra
+## NIM : 2100016113
 ## Kelas : C
 
