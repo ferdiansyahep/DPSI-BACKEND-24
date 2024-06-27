@@ -1,24 +1,31 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../models/category'); // Impor model Category
+
 // Endpoint untuk menambahkan kategori baru
 router.post('/', async (req, res, next) => {
     try {
         const { categoryName, description } = req.body;
-        const newCategory = await Category.create({ categoryName,
-description });
+        const newCategory = await Category.create({
+            categoryName,
+            description
+        });
         res.status(201).json(newCategory);
     } catch (err) {
-next(err); }
+        next(err);
+    }
 });
+
 // Endpoint untuk menampilkan semua kategori
 router.get('/', async (req, res, next) => {
     try {
         const categories = await Category.findAll();
         res.json(categories);
     } catch (err) {
-next(err); }
+        next(err);
+    }
 });
+
 // Endpoint untuk menampilkan kategori berdasarkan ID
 router.get('/:id', async (req, res, next) => {
     try {
@@ -30,7 +37,9 @@ router.get('/:id', async (req, res, next) => {
         }
     } catch (err) {
         next(err);
-} });
+    }
+});
+
 // Endpoint untuk memperbarui kategori berdasarkan ID
 router.put('/:id', async (req, res, next) => {
     try {
@@ -45,8 +54,10 @@ router.put('/:id', async (req, res, next) => {
             res.status(404).json({ message: 'Category not found' });
         }
     } catch (err) {
-next(err); }
+        next(err);
+    }
 });
+
 // Endpoint untuk menghapus kategori berdasarkan ID
 router.delete('/:id', async (req, res, next) => {
     try {
@@ -59,5 +70,7 @@ router.delete('/:id', async (req, res, next) => {
         }
     } catch (err) {
         next(err);
-} });
+    }
+});
+
 module.exports = router;

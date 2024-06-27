@@ -1,5 +1,6 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('./index');
+
 const Category = sequelize.define('Category', {
     categoryID: {
         type: DataTypes.INTEGER,
@@ -13,7 +14,9 @@ const Category = sequelize.define('Category', {
     description: {
         type: DataTypes.STRING,
         allowNull: true
-} }, {
+    }
+}, {
     timestamps: false
 });
+
 module.exports = Category;

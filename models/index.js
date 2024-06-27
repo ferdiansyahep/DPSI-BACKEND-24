@@ -1,9 +1,11 @@
 const { Sequelize } = require('sequelize');
+
 // Konfigurasi koneksi Sequelize
 const sequelize = new Sequelize('dpsi', 'root', 'smaroe87', {
     host: 'localhost',
     dialect: 'mysql'
 });
+
 // Uji koneksi
 sequelize.authenticate()
     .then(() => {
@@ -11,6 +13,7 @@ sequelize.authenticate()
     })
     .catch(err => {
         console.error('Unable to connect to the database:', err);
-});
+    });
+
 // Ekspor instance sequelize untuk digunakan di tempat lain
 module.exports = sequelize;
